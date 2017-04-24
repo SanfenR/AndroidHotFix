@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -25,11 +26,23 @@ public class MainActivity extends AppCompatActivity {
                 update();
             }
         });
-//        ((TextView)findViewById(R.id.bug)).setText("我被修复了！！！");
+
+        findViewById(R.id.show_bug).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast();
+            }
+        });
+    }
+
+    private void showToast() {
+        Toast.makeText(this, "我有一个bug, 我被修复了", Toast.LENGTH_LONG).show();
     }
 
     private void update() {
         String patchFileStr = Environment.getExternalStorageDirectory().getAbsolutePath() + APATCH_PATH;
+        Log.e(TAG, "load patch + --- " + patchFileStr);
+        Toast.makeText(this, "load patch + --- " + patchFileStr, Toast.LENGTH_LONG).show();
         try {
             AndFixApplication.mPatchManager.addPatch(patchFileStr);
             AndFixApplication.mPatchManager.loadPatch();

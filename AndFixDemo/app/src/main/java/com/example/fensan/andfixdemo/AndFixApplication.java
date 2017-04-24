@@ -19,7 +19,13 @@ public class AndFixApplication extends Application {
         super.onCreate();
         // 初始化patch管理类
         mPatchManager = new PatchManager(this);
+
         // 初始化patch版本
         mPatchManager.init("1.0");
+//        String appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+//        mPatchManager.init(appVersion);
+
+        // 加载已经添加到PatchManager中的patch
+        mPatchManager.loadPatch();
     }
 }
