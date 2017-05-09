@@ -36,16 +36,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showToast() {
-        Toast.makeText(this, "我有一个bug, 我被修复了", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "我有一个bug， 我被修复了", Toast.LENGTH_SHORT).show();
     }
 
     private void update() {
         String patchFileStr = Environment.getExternalStorageDirectory().getAbsolutePath() + APATCH_PATH;
         Log.e(TAG, "load patch + --- " + patchFileStr);
-        Toast.makeText(this, "load patch + --- " + patchFileStr, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "load patch + --- " + patchFileStr, Toast.LENGTH_SHORT).show();
         try {
             AndFixApplication.mPatchManager.addPatch(patchFileStr);
-            AndFixApplication.mPatchManager.loadPatch();
         } catch (IOException e) {
             e.printStackTrace();
         }

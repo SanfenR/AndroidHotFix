@@ -163,7 +163,7 @@
     <style name="TextAppearance.StatusBar.EventContent.Title" parent="" />
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="@style/Base.DialogWindowTitle.AppCompat" />
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="@android:style/Widget">
-        <item name="android:layout_gravity">left|center</item>
+        <item name="android:layout_gravity">center|left</item>
         <item name="android:paddingRight">8.0dip</item>
     </style>
     <style name="RtlOverlay.Widget.AppCompat.DialogTitle.Icon" parent="@android:style/Widget">

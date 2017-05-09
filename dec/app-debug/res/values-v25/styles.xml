@@ -2,6 +2,6 @@
 <resources>
     <style name="Platform.AppCompat" parent="@style/Platform.V25.AppCompat" />
     <style name="Platform.AppCompat.Light" parent="@style/Platform.V25.AppCompat.Light" />
-    <style name="Platform.V25.AppCompat" parent="@android:style/Preference.RingtonePreference" />
-    <style name="Platform.V25.AppCompat.Light" parent="@android:style/Widget.TextSelectHandle" />
+    <style name="Platform.V25.AppCompat" parent="@android:style/Theme.Material.NoActionBar" />
+    <style name="Platform.V25.AppCompat.Light" parent="@android:style/Theme.Material.Light.NoActionBar" />
 </resources>
