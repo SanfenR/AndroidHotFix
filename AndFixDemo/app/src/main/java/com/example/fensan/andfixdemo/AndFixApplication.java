@@ -1,8 +1,14 @@
 package com.example.fensan.andfixdemo;
 
 import android.app.Application;
+import android.nfc.Tag;
+import android.os.Environment;
+import android.util.Log;
 
 import com.alipay.euler.andfix.patch.PatchManager;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created on 2017/4/17
@@ -12,20 +18,32 @@ import com.alipay.euler.andfix.patch.PatchManager;
  */
 
 public class AndFixApplication extends Application {
+    private static final String TAG = "AndFixApplication";
     public static PatchManager mPatchManager;
-
+    private String path;
     @Override
     public void onCreate() {
         super.onCreate();
-        // 初始化patch管理类
         mPatchManager = new PatchManager(this);
-
-        // 初始化patch版本
         mPatchManager.init("1.0");
-//        String appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-//        mPatchManager.init(appVersion);
-
-        // 加载已经添加到PatchManager中的patch
         mPatchManager.loadPatch();
+
+        path = Environment.getExternalStorageDirectory().getAbsoluteFile() + File.separator + "fix.apatch";
+
+        Log.e(TAG, path);
+        File file = new File(path);
+        if (file.exists()){
+            Log.e("fmy","文件存在");
+            try {
+                mPatchManager.addPatch(path);
+                mPatchManager.removeAllPatch();
+                Log.e("fmy","热修复成功");
+            } catch (IOException e) {
+                Log.e("fmy","热修复失败:"+e.getMessage());
+            }
+        }else{
+            Log.e("fmy","文件不存在");
+        }
+
     }
 }
