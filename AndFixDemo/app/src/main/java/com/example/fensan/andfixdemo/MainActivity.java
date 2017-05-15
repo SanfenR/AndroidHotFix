@@ -6,15 +6,17 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String fix = "我有一个bug";
+    String name ="你好";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void onClick(View v) {
-        //fix ="修复了";
-        Toast.makeText(this, fix, Toast.LENGTH_SHORT).show();
+    //一个按钮的点击事件
+    public void onClick(View view) {
+//        name = "修复了";
+        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
     }
 }
